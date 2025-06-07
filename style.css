@@ -1,0 +1,54 @@
+/* style.css */
+
+/*
+   This file is primarily for custom CSS that isn't easily achieved
+   with Tailwind CSS utility classes, or for global overrides.
+   Since Tailwind is used for most styling, this file is minimal.
+*/
+
+/* Example: Basic scroll behavior for smooth scrolling to anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ensure images are fluid and don't overflow their containers */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Removes extra space below images */
+}
+
+/* Hide content visually but keep it accessible to screen readers */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* When an sr-only element is focused, make it visible */
+.sr-only.focus\:not-sr-only:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+}
+
+/* Custom focus ring for better keyboard accessibility */
+/* This is also defined inline using Tailwind's arbitrary values, but can be
+   customized here if more complex focus styles are needed. */
+/*
+*:focus-visible {
+    outline: 2px solid theme('colors.blue.500');
+    outline-offset: 2px;
+    border-radius: theme('borderRadius.md');
+}
+*/
