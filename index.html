@@ -4,33 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acessibilidade Web: Uma Internet para Todos</title>
-    <!-- Favicon - You can replace this with your own favicon -->
     <link rel="icon" href="https://placehold.co/32x32/1a202c/ffffff?text=AW">
-    <!-- Link to Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles for the Inter font and potential overrides */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        /* Custom utility for focus-visible outlines */
         .focus-ring:focus-visible {
             outline: 2px solid theme('colors.blue.500');
             outline-offset: 2px;
             border-radius: theme('borderRadius.md');
         }
     </style>
-    <!-- Link to your custom CSS file -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased">
-    <!-- Skip to main content link for accessibility -->
     <a href="#main-content" class="sr-only focus:not-sr-only absolute top-0 left-0 bg-blue-600 text-white p-3 rounded-br-md focus-ring">Pular para o conteúdo principal</a>
 
-    <!-- Header Section -->
     <header class="bg-white shadow-sm py-4">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-blue-700 rounded-md focus-ring" aria-label="Acessibilidade Web - Página Inicial">
@@ -52,7 +45,6 @@
     </header>
 
     <main id="main-content">
-        <!-- Hero Section -->
         <section class="bg-blue-600 text-white py-20 px-4 text-center rounded-b-lg shadow-md">
             <div class="container mx-auto">
                 <h1 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">Acessibilidade Web: Construindo uma Internet para Todos</h1>
@@ -66,7 +58,6 @@
             </div>
         </section>
 
-        <!-- What is Web Accessibility Section -->
         <section id="o-que-e" class="py-16 px-4 bg-white rounded-lg shadow-sm mx-auto my-8 max-w-6xl">
             <div class="container mx-auto">
                 <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">O Que é Acessibilidade Web?</h2>
@@ -86,7 +77,6 @@
             </div>
         </section>
 
-        <!-- Importance Section -->
         <section id="importancia" class="py-16 px-4 bg-gray-100 rounded-lg shadow-sm mx-auto my-8 max-w-6xl">
             <div class="container mx-auto">
                 <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Por Que a Acessibilidade Web Importa?</h2>
@@ -113,7 +103,6 @@
             </div>
         </section>
 
-        <!-- Principles Section -->
         <section id="principios" class="py-16 px-4 bg-white rounded-lg shadow-sm mx-auto my-8 max-w-6xl">
             <div class="container mx-auto">
                 <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Os 4 Princípios da WCAG (POUR)</h2>
@@ -146,7 +135,6 @@
             </div>
         </section>
 
-        <!-- How to Implement Section -->
         <section id="como-implementar" class="py-16 px-4 bg-gray-100 rounded-lg shadow-sm mx-auto my-8 max-w-6xl">
             <div class="container mx-auto">
                 <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Como Implementar a Acessibilidade Web</h2>
@@ -191,7 +179,6 @@
             </div>
         </section>
 
-        <!-- Resources Section -->
         <section id="recursos" class="py-16 px-4 bg-white rounded-lg shadow-sm mx-auto my-8 max-w-6xl">
             <div class="container mx-auto text-center">
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">Recursos e Ferramentas</h2>
@@ -222,7 +209,6 @@
         </section>
     </main>
 
-    <!-- Footer Section -->
     <footer class="bg-gray-800 text-white py-8 px-4 mt-12 rounded-t-lg shadow-inner">
         <div class="container mx-auto text-center">
             <p class="text-sm mb-4">
@@ -235,7 +221,6 @@
         </div>
     </footer>
 
-    <!-- Link to your JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>
