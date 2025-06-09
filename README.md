@@ -1,11 +1,9 @@
 # Acessibilidade-Web-2.0
 
-#linguagens usadas:
+linguagens usadas:
 
 HTML
-
 CSS
-
 JS
 
 ![image](https://github.com/user-attachments/assets/63ae11c7-968f-4b45-90bf-6757acc95c4b)
