@@ -19,6 +19,7 @@ Este projeto demonstra na prática a implementação dos seguintes conceitos de 
 - HTML5
 - CSS3 (com Tailwind CSS)
 - JavaScript
+- TypeScript
 
 ##  Como Executar o Projeto
 1. Faça o clone ou baixe o repositório para a sua máquina.
