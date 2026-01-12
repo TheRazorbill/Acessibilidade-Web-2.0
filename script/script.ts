@@ -1,70 +1,72 @@
-// script.js
+document.addEventListener("DOMContentLoaded", () => {
+  const menuToggle = document.getElementById(
+    "menu-toggle"
+  ) as HTMLButtonElement | null;
+  const mainMenu = document.getElementById("main-menu") as HTMLElement | null;
 
-document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menu-toggle');
-    const mainMenu = document.getElementById('main-menu');
+  if (menuToggle && mainMenu) {
+    menuToggle.addEventListener("click", () => {
+      const isExpanded: boolean =
+        menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", (!isExpanded).toString());
 
-    if (menuToggle && mainMenu) {
+      mainMenu.classList.toggle("hidden");
+      mainMenu.classList.toggle("flex");
+      mainMenu.classList.toggle("flex-col");
 
-        menuToggle.addEventListener('click', () => {
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', (!isExpanded).toString());
-            mainMenu.classList.toggle('hidden');
-            mainMenu.classList.toggle('flex');
-            mainMenu.classList.toggle('flex-col');
+      if (!isExpanded) {
+        const firstLink = mainMenu.querySelector(
+          "a"
+        ) as HTMLAnchorElement | null;
+        firstLink?.focus();
+      }
+    });
 
-            if (!isExpanded) {
-                const firstLink = mainMenu.querySelector('a');
-                if (firstLink) {
-                    firstLink.focus();
-                }
-            }
-        });
+    const menuLinks = mainMenu.querySelectorAll<HTMLAnchorElement>("a");
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        if (!mainMenu.classList.contains("hidden")) {
+          menuToggle.setAttribute("aria-expanded", "false");
+          mainMenu.classList.add("hidden");
+          mainMenu.classList.remove("flex", "flex-col");
+        }
+      });
+    });
 
-        mainMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (!mainMenu.classList.contains('hidden')) {
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                    mainMenu.classList.add('hidden');
-                    mainMenu.classList.remove('flex', 'flex-col');
-                }
-            });
-        });
+    document.addEventListener("click", (event: MouseEvent) => {
+      const target = event.target as Node;
+      const isClickInsideMenu = mainMenu.contains(target);
+      const isClickOnToggle = menuToggle.contains(target);
 
-        document.addEventListener('click', (event) => {
-            const isClickInsideMenu = mainMenu.contains(event.target as Node);
-            const isClickOnToggle = menuToggle.contains(event.target as Node);
+      if (
+        !mainMenu.classList.contains("hidden") &&
+        !isClickInsideMenu &&
+        !isClickOnToggle
+      ) {
+        menuToggle.setAttribute("aria-expanded", "false");
+        mainMenu.classList.add("hidden");
+        mainMenu.classList.remove("flex", "flex-col");
+      }
+    });
+  } else {
+    console.error("Menu toggle button or main menu not found.");
+  }
 
-            if (!mainMenu.classList.contains('hidden') && !isClickInsideMenu && !isClickOnToggle) {
-                menuToggle.setAttribute('aria-expanded', 'false');
-                mainMenu.classList.add('hidden');
-                mainMenu.classList.remove('flex', 'flex-col');
-            }
-        });
-    } else {
-        console.error("Menu toggle button or main menu not found. Check your HTML IDs.");
-    }
+  const scrollToTopBtn = document.getElementById(
+    "scroll-to-top"
+  ) as HTMLButtonElement | null;
 
+  if (scrollToTopBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollToTopBtn.classList.replace("hidden", "block");
+      } else {
+        scrollToTopBtn.classList.replace("block", "hidden");
+      }
+    });
 
-    const scrollToTopBtn = document.getElementById('scroll-to-top');
-
-    if (scrollToTopBtn) {
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                scrollToTopBtn.classList.remove('hidden');
-                scrollToTopBtn.classList.add('block');
-            } else {
-                scrollToTopBtn.classList.remove('block');
-                scrollToTopBtn.classList.add('hidden');
-            }
-        });
-
-        scrollToTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
+    scrollToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 });
